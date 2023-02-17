@@ -19,7 +19,7 @@ def generate_launch_description():
     model_arg = DeclareLaunchArgument(name='model', description='Absolute path to robot urdf file')
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
     use_sim_time = LaunchConfiguration('use_sim_time') 
-    package_name = 'my_bot'
+    package_name = 'sentinel_bot'
     pkg_share = FindPackageShare(package=package_name).find(package_name)
     pkg_gazebo_ros = FindPackageShare(package='gazebo_ros').find('gazebo_ros') 
 
@@ -33,13 +33,13 @@ def generate_launch_description():
         description='Use simulation (Gazebo) clock if true'
         )
 
-    robot_name_in_model = 'mbot'
+    robot_name_in_model = 'sentinel'
 
     # Get URDF via xacro
 
-    urdf_file_name = 'mbot.urdf'
+    urdf_file_name = 'sentinel.urdf'
     urdf = os.path.join(
-        get_package_share_directory('my_bot'),
+        get_package_share_directory('sentinel_bot'),
         'urdf',
         urdf_file_name
         )
@@ -54,7 +54,7 @@ def generate_launch_description():
         package='rviz2',
         executable='rviz2',
         name='rviz2',
-        output='log',
+        output='screen',
         parameters=[{'use_sim_time': use_sim_time}],
     )
  
@@ -99,6 +99,7 @@ def generate_launch_description():
      
     return LaunchDescription([
     declare_use_sim_time_cmd,
+    rviz2,
     spawn,
     # start_joint_state_publisher_cmd, 
     robot_state_publisher_node,

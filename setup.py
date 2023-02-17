@@ -3,7 +3,7 @@ import os
 from glob import glob
 from setuptools import find_packages
 
-package_name = 'my_bot'
+package_name = 'sentinel_bot'
 
 setup(
     name=package_name,

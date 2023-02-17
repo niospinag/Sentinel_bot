@@ -3,8 +3,8 @@
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <!-- <robot
-  name="my_bot"> -->
-  <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="mobile_robot">
+  name="sentinel_bot"> -->
+  <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="sentinel">
   <link
     name="base_link">
     <inertial>
@@ -12,7 +12,7 @@
         xyz="-0.00126360168711622 -2.15210505719397E-05 0.0244518092797932"
         rpy="0 0 0" />
       <mass
-        value="0.321778979369154" />
+        value="0.8" />
       <inertia
         ixx="0.000625500527952296"
         ixy="-2.93764597872576E-06"
@@ -27,7 +27,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://my_bot/meshes/base_link.STL" />
+          filename="package://sentinel_bot/meshes/base_link.STL" />
       </geometry>
       <material
         name="">
@@ -41,7 +41,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://my_bot/meshes/base_link.STL" />
+          filename="package://sentinel_bot/meshes/base_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -76,7 +76,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://my_bot/meshes/Left_wheel_link.STL" />
+          filename="package://sentinel_bot/meshes/Left_wheel_link.STL" />
       </geometry>
       <material
         name="">
@@ -90,7 +90,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://my_bot/meshes/Left_wheel_link.STL" />
+          filename="package://sentinel_bot/meshes/Left_wheel_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -143,7 +143,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://my_bot/meshes/Right_wheel_link.STL" />
+          filename="package://sentinel_bot/meshes/Right_wheel_link.STL" />
       </geometry>
       <material
         name="">
@@ -157,7 +157,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://my_bot/meshes/Right_wheel_link.STL" />
+          filename="package://sentinel_bot/meshes/Right_wheel_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -210,7 +210,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://my_bot/meshes/Deep_camera_link.STL" />
+          filename="package://sentinel_bot/meshes/Deep_camera_link.STL" />
       </geometry>
       <material
         name="">
@@ -224,7 +224,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://my_bot/meshes/Deep_camera_link.STL" />
+          filename="package://sentinel_bot/meshes/Deep_camera_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -268,7 +268,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://my_bot/meshes/Lidar_link.STL" />
+          filename="package://sentinel_bot/meshes/Lidar_link.STL" />
       </geometry>
       <material
         name="">
@@ -282,7 +282,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://my_bot/meshes/Lidar_link.STL" />
+          filename="package://sentinel_bot/meshes/Lidar_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -333,7 +333,7 @@
       xyz="1 0 0" />
   </joint> -->
 
-  <link name="imu_link"/>
+  <!-- <link name="imu_link"/>
   <joint
     name="imu_joint"
     type="fixed">
@@ -346,7 +346,7 @@
       link="imu_link" />
     <axis
       xyz="1 0 0" />
-  </joint>
+  </joint> -->
 
 
   <!--LIDAR CONFIGURATION-->
@@ -396,7 +396,7 @@
 
     <!--IMU sensor-->
 
-  <gazebo reference="imu_link">
+  <!-- <gazebo reference="imu_link">
     <gravity>true</gravity>
     <sensor name="imu_sensor" type="imu">
       <always_on>true</always_on>
@@ -415,7 +415,7 @@
       </plugin>
       <pose>0 0 0 0 0 0</pose>
     </sensor>
-  </gazebo>
+  </gazebo> -->
 
   <gazebo>
     <plugin name="two_wheeled_robot_diff_drive" filename="libgazebo_ros_diff_drive.so">
@@ -423,8 +423,8 @@
       <update_rate>100</update_rate>
       
       <!-- wheels -->
-      <left_joint>Left_wheel_link</left_joint>
-      <right_joint>Right_wheel_link</right_joint>
+      <left_joint>Left_wheel_joint</left_joint>
+      <right_joint>Right_wheel_joint</right_joint>
  
       <!-- kinematics -->
       <wheel_separation>0.15</wheel_separation>
