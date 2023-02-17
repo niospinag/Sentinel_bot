@@ -1,2 +1,2 @@
 # Sentinel_bot
-GitHub repository for a 3D-printed robot designed using the Robot Operating System (ROS) 
+GitHub repository for a 3D-printed robot designed using the Robot Operating System (ROS) and open-source hardware such as Arduino, Raspberry Pi, and Jetson Nano. The robot is designed to provide an affordable way to explore the world of robotics and coding. The repository contains all the necessary software and hardware designs, as well as detailed instructions for assembly and programming. With this robot, users can learn about sensors, motor control, path planning, and more, all while gaining hands-on experience with modern robotics technologies.
